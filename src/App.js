@@ -5,6 +5,7 @@ import { connect } from 'react-redux' // higher order component that will add fu
 import NewsContainer from './containers/NewsContainer';
 import { fetchNews } from './actions/NewsAction.js'
 import Nav from "./containers/Nav.js"
+import userActions from './actions/User.js'
 
 
 class App extends React.Component {
@@ -55,7 +56,8 @@ function mapStateToProps(state){
 // will return an object
 // obj will also be appended to props of the component
 const mapDispatchToProps = (dispatch) => ({
-  fetchNews: () => dispatch(fetchNews())
+  fetchNews: () => dispatch(fetchNews()),
+  persistFromDB: userActions.persistFromDB
 })
 
 // connect is a higher order function; which is a function that returns a function
