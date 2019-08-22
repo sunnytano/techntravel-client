@@ -1,8 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router } from "react-router-dom";
 import './App.css';
 import { connect } from 'react-redux' // higher order component that will add functionality to ur component
 import NewsContainer from './containers/NewsContainer';
 import { fetchNews } from './actions/NewsAction.js'
+import Nav from "./containers/Nav.js"
+
 
 class App extends React.Component {
 
@@ -22,9 +25,12 @@ class App extends React.Component {
   render(){
     console.log(this.props.news)
     return (
-    <div className="App">
-      <NewsContainer />
-    </div>
+    <Router>
+      <div className="App">
+        <Nav />
+        <NewsContainer />
+      </div>
+   </Router>
   );
 }
 }
@@ -43,7 +49,6 @@ function mapStateToProps(state){
     news: state.news // only return the state that you need for this paticular component that will be read as props
   }
 }
-
 
 // MDP IS WRITING TO STATE
 // has access to dispactch so it can write to state

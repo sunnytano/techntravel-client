@@ -35,7 +35,6 @@ console.log("reading state before dispatch", store.getState())
 // payload is used to determine what new data needs to be used to change state
 // data is always action.payload => payloads are like sources of information
 
-
 // Provider is a component, it provides to the entire application access to the store
 ReactDOM.render(
     <Provider store={store}> 
