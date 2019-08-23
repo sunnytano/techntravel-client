@@ -6,7 +6,6 @@ import { createStore, applyMiddleware } from 'redux'
 import * as serviceWorker from './serviceWorker';
 import NewsReducer from './reducers/NewsReducer.js'
 import { Provider } from 'react-redux' // Provider is a component, it provides to the entire application access to the store'
-import News from './components/News';
 import thunk from 'redux-thunk';
 // import RootReducer from './reducers/RootReducer.js'
 

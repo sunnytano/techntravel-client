@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import './App.css';
 import { connect } from 'react-redux' // higher order component that will add functionality to ur component
-import NewsContainer from './containers/NewsContainer';
 import { fetchNews } from './actions/NewsAction.js'
 import Nav from "./containers/Nav.js"
 import userActions from './actions/User.js'
+import Routes from './Routes.js'
 
 
 class App extends React.Component {
@@ -29,7 +29,7 @@ class App extends React.Component {
     <Router>
       <div className="App">
         <Nav />
-        <NewsContainer />
+        <Routes />
       </div>
    </Router>
   );
