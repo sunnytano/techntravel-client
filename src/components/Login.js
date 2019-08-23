@@ -5,7 +5,7 @@ import User from '../actions/User.js'
 class Login extends React.Component {
     state = {
         username: "", 
-        password: ""
+        password: "", 
     }
 
     handleChange = e => 
