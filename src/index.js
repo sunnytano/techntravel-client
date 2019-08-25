@@ -7,7 +7,8 @@ import * as serviceWorker from './serviceWorker';
 import NewsReducer from './reducers/NewsReducer.js'
 import { Provider } from 'react-redux' // Provider is a component, it provides to the entire application access to the store'
 import thunk from 'redux-thunk';
-// import RootReducer from './reducers/RootReducer.js'
+import RootReducer from './reducers/RootReducer.js'
+import News from './components/News';
 
 
 // store is used to manage state

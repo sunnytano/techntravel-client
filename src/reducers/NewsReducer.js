@@ -1,7 +1,8 @@
 const defaultState = {
     news: [], 
     input: "", 
-    likes: 0
+    likes: 0,
+    users: []
 }
 
 // reducer: is used to control changes to state
@@ -32,6 +33,8 @@ function NewsReducer(state=defaultState, action){
     switch(action.type){
         case "FETCH_NEWS":
             return {...state, news: action.payload }
+        case "FETCH_USERS":
+            return {...state, users: action.payload }
         case "ADD_LIKES":
             return {...state, likes: state.likes + 1}
         case "CHANGE_INPUT":

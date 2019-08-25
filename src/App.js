@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import './App.css';
 import { connect } from 'react-redux' // higher order component that will add functionality to ur component
 import { fetchNews } from './actions/NewsAction.js'
+import { fetchUsers } from './actions/UserAction.js'
 import Nav from "./containers/Nav.js"
 import userActions from './actions/User.js'
 import Routes from './Routes.js'
@@ -16,6 +17,7 @@ class App extends React.Component {
 
   componentDidMount(){
     this.props.fetchNews()
+    this.props.fetchUsers()
     .then(()=>{
       this.setState({
         loading: false
@@ -25,6 +27,7 @@ class App extends React.Component {
 
   render(){
     console.log(this.props.news)
+    console.log(this.props.users)
     return (
     <Router>
       <div className="App">
@@ -47,7 +50,8 @@ class App extends React.Component {
 function mapStateToProps(state){ 
   console.log(state)
   return { 
-    news: state.news // only return the state that you need for this paticular component that will be read as props
+    news: state.news, // only return the state that you need for this paticular component that will be read as props
+    users: state.users
   }
 }
 
@@ -57,6 +61,7 @@ function mapStateToProps(state){
 // obj will also be appended to props of the component
 const mapDispatchToProps = (dispatch) => ({
   fetchNews: () => dispatch(fetchNews()),
+  fetchUsers: () => dispatch(fetchUsers()),
   persistFromDB: userActions.persistFromDB
 })
 

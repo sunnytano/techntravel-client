@@ -8,6 +8,7 @@ const Nav = props => {
         const { logoutUser } = props;
         logoutUser();
     }
+
     return(
         <nav>
             <Link to="/">Home</Link>

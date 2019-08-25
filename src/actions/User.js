@@ -1,4 +1,4 @@
-const login= user => ({
+const login = user => ({
     type: "LOGIN", 
     payload: user
 });
