@@ -1,28 +1,35 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import userActions from '../actions/User.js'
+import User from '../actions/User.js'
 
-const Nav = props => {
-    const handleLogout = () => {
-        const { logoutUser } = props;
-        logoutUser();
+class Nav extends React.Component{
+
+    handleLogout = () => {
+        this.props.logoutUser();
+        console.log(this.props.users)
     }
-
+ 
+    render(){
+        console.log(this.props.users.username)
     return(
         <nav>
             <Link to="/">Home</Link>
             <Link to="signup">Signup</Link>
             <Link to="login">Login</Link>
-            <Link to="/" onClick={handleLogout}>Logout</Link>
-            <p>{props.user ? props.user.username : null}</p>
+            <Link to="/" onClick={this.handleLogout}>Logout</Link>
+            <p>{this.props.users ? this.props.users.username : null}</p>
         </nav>
-    )
+        )
+    }
 }
 
-const mapStateToProps = state => ({ user: state})
+const mapStateToProps = state => ({ 
+    users: state
+})
 const mapDispatchToProps = {
-    logoutUser: userActions.logoutUser
+    logoutUser: User.logoutUser
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav)

@@ -8,7 +8,6 @@ import Nav from "./containers/Nav.js"
 import userActions from './actions/User.js'
 import Routes from './Routes.js'
 
-
 class App extends React.Component {
 
   state={

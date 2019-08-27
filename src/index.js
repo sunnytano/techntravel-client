@@ -2,19 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import * as serviceWorker from './serviceWorker';
 import NewsReducer from './reducers/NewsReducer.js'
+import UserReducer from './reducers/UserReducer.js'
 import { Provider } from 'react-redux' // Provider is a component, it provides to the entire application access to the store'
 import thunk from 'redux-thunk';
-import RootReducer from './reducers/RootReducer.js'
-import News from './components/News';
+// import RootReducer from './reducers/RootReducer'
+// import News from './components/News';
 
 
 // store is used to manage state
 // contains state as an object and functions that manipulate/read state
-const store = createStore(NewsReducer, applyMiddleware(thunk))
-
+let rootReducer =  combineReducers({news: NewsReducer, users: UserReducer})
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(NewsReducer, composeEnhancers(applyMiddleware(thunk)))
 console.log("reading state before dispatch", store.getState())
 
 // dispatch is the functions used to write to the state, 
@@ -40,7 +42,6 @@ ReactDOM.render(
     <Provider store={store}> 
         <App />
     </Provider>,
-
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
