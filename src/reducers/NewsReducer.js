@@ -34,18 +34,21 @@ function NewsReducer(state=defaultState, action){
     switch(action.type){
         case "FETCH_NEWS":
             return {...state, news: action.payload }
-        case "FETCH_USER":
-            return {...state, users: action.payload }
+        // case "FETCH_USER":
+        //     return {...state, users: action.payload }
         case "ADD_LIKES":
             return {...state, likes: state.likes + 1}
         case "CHANGE_INPUT":
             return {...state, input: action.payload}
         case "LOGIN":
+            // return {...state, currentUser: action.payload }
             return action.payload
         case "SIGNUP":
-                return action.payload
+            return action.payload
+            // return {...state, currentUser: action.payload }
         case "PERSIST":
-            return action.payload;
+            return {...state, currentUser: action.payload }
+            // return action.payload
         case "LOGOUT":
             return {...state, currentUser: {}}
         default: 

@@ -5,31 +5,47 @@ import User from '../actions/User.js'
 
 class Nav extends React.Component{
 
-    handleLogout = () => {
-        this.props.logoutUser();
-        console.log(this.props.users)
+    state={
+        loggedIn: false
+    }
+
+    handleLogout = e => {
+        e.preventDefault()
+        localStorage.removeItem("token")
+        this.props.logoutUser(this.props.history);
+        // console.log(this.props.currentUser.username)
     }
  
     render(){
-        console.log(this.props.users.username)
+        console.log(this.props.currentUser.username)
+        // <p>{this.props.currentUser ? this.props.currentUser.username : null}</p>
+
     return(
         <nav>
             <Link to="/">Home</Link>
-            <Link to="signup">Signup</Link>
-            <Link to="login">Login</Link>
-            <Link to="/" onClick={this.handleLogout}>Logout</Link>
-            <p>{this.props.users ? this.props.users.username : null}</p>
+            {this.props.currentUser.username ?
+            <div>
+              <Link to="/" onClick={this.handleLogout}>Logout</Link>
+                <p>{this.props.currentUser.username}</p>
+                <h1>ACCOUNT</h1>
+            </div>
+            :
+            <div>
+                <Link to="signup">Signup</Link>
+                <Link to="login">Login</Link>
+            </div>
+            }
         </nav>
         )
     }
 }
 
 const mapStateToProps = state => ({ 
-    users: state
+    currentUser: state
 })
-const mapDispatchToProps = {
-    logoutUser: User.logoutUser
-};
+const mapDispatchToProps = dispatch => ({
+    logoutUser: (history) => dispatch(User.logoutUser(history))
+});
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav)

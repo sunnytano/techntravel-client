@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 class NewsContainer extends React.Component{
 
     render(){
+
+  
         return(
             <div> 
                 <h3>{this.props.likes}</h3>
@@ -12,12 +14,13 @@ class NewsContainer extends React.Component{
 
                 <input name="input" onChange={(e)=>this.props.changeInput(e.target.value)}/>
                 <h3>{this.props.input}</h3>
-
                 <h4>{this.props.news.map(article=>{
-                   return <News key={article.id} 
-                                article={article}
-                    />
-                })}</h4>
+                         return <News
+                                 key={article.id} 
+                                 article={article}
+                                />
+         })}</h4>
+
             </div>
         )
     }

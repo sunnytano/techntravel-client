@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
@@ -39,9 +40,11 @@ console.log("reading state before dispatch", store.getState())
 
 // Provider is a component, it provides to the entire application access to the store
 ReactDOM.render(
+    <Router>
     <Provider store={store}> 
         <App />
-    </Provider>,
+    </Provider>
+    </Router>,
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
