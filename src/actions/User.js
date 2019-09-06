@@ -1,5 +1,3 @@
-import { Switch, Route, Redirect } from 'react-router-dom'
-
 const login = user => ({
     type: "LOGIN", 
     payload: user

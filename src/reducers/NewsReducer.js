@@ -41,15 +41,16 @@ function NewsReducer(state=defaultState, action){
         case "CHANGE_INPUT":
             return {...state, input: action.payload}
         case "LOGIN":
-            // return {...state, currentUser: action.payload }
-            return action.payload
+            return {...state, currentUser: action.payload }
+            // return action.payload
         case "SIGNUP":
-            return action.payload
-            // return {...state, currentUser: action.payload }
+            // return action.payload
+            return {...state, currentUser: action.payload }
         case "PERSIST":
             return {...state, currentUser: action.payload }
             // return action.payload
         case "LOGOUT":
+            console.log("loggin out")
             return {...state, currentUser: {}}
         default: 
             return state

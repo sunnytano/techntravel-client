@@ -12,7 +12,6 @@ import thunk from 'redux-thunk';
 // import RootReducer from './reducers/RootReducer'
 // import News from './components/News';
 
-
 // store is used to manage state
 // contains state as an object and functions that manipulate/read state
 let rootReducer =  combineReducers({news: NewsReducer, users: UserReducer})

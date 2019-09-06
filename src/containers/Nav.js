@@ -13,11 +13,12 @@ class Nav extends React.Component{
         e.preventDefault()
         localStorage.removeItem("token")
         this.props.logoutUser(this.props.history);
+        // this.props.history.push("/")
         // console.log(this.props.currentUser.username)
     }
  
     render(){
-        console.log(this.props.currentUser.username)
+        console.log(this.props.currentUser)
         // <p>{this.props.currentUser ? this.props.currentUser.username : null}</p>
 
     return(
@@ -41,11 +42,11 @@ class Nav extends React.Component{
 }
 
 const mapStateToProps = state => ({ 
-    currentUser: state
+    currentUser: state.currentUser
 })
+
 const mapDispatchToProps = dispatch => ({
     logoutUser: (history) => dispatch(User.logoutUser(history))
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav)
