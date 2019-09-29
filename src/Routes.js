@@ -11,16 +11,9 @@ class Routes extends React.Component {
         console.log(this.props.currentUser.username)
     return (
         <Switch>
-            { this.props.currentUser.username ?
-            <div>
-             <Route path ='/' component={NewsContainer}/>
-            </div>
-                :
-             <div>
+            <Route path ='/' component={NewsContainer}/>
             <Route path='/signup' component={Signup}/>
-            <Route path ='/login' component={Login}/>
-            </div>
-            }
+            <Route path ='/login' component={Login}/>   
         </Switch>
         )
     }
