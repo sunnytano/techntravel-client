@@ -8,17 +8,15 @@ import Signup from './components/Signup.js'
 
 class Routes extends React.Component {
     render(){
+        //  { this.props.currentUser.username ?
         console.log(this.props.currentUser.username)
     return (
         <Switch>
-            { !this.props.currentUser.username ?
-            <div>
+        
+             <Route path ='/' component={NewsContainer}/>
             <Route path='/signup' component={Signup}/>
             <Route path ='/login' component={Login}/>
-            </div>
-                :
-            <Route path ='/' component={NewsContainer}/>
-            }
+
         </Switch>
         )
     }
