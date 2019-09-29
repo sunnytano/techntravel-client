@@ -20,22 +20,17 @@ class Nav extends React.Component{
     render(){
         console.log(this.props.currentUser)
         // <p>{this.props.currentUser ? this.props.currentUser.username : null}</p>
-
+        //           {this.props.currentUser.username ?
     return(
         <nav>
             <Link to="/">Home</Link>
-            {this.props.currentUser.username ?
-            <div>
-              <Link to="/" onClick={this.handleLogout}>Logout</Link>
-                <p>{this.props.currentUser.username}</p>
-                <h1>ACCOUNT</h1>
-            </div>
-            :
-            <div>
-                <Link to="signup">Signup</Link>
-                <Link to="login">Login</Link>
-            </div>
-            }
+            <Link to="signup">Signup</Link>
+            <Link to="login">Login</Link>
+                <p>{this.props.currentUser ? this.props.currentUser.username  &&
+                <Link to="/" onClick={this.handleLogout}>Logout</Link>
+                    : null}</p>
+        
+            
         </nav>
         )
     }
